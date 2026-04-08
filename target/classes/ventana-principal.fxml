@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox spacing="15.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.VentanaPrincipalController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label text="Control de Inventario">
+        <font>
+            <Font name="Arial" size="22.0" />
+        </font>
+    </Label>
+
+    <Label fx:id="lblBienvenida" text="" style="-fx-font-size: 16px; -fx-text-fill: #2c3e50;" />
+
+    <TableView fx:id="tablaProductos" VBox.vgrow="ALWAYS" onMouseClicked="#Leer" >
+        <columns>
+            <TableColumn fx:id="colCodigo" prefWidth="60.0" text="Código" />
+            <TableColumn fx:id="colNombre" prefWidth="150.0" text="Nombre" />
+
+            <TableColumn fx:id="colMarca" prefWidth="150.0" text="Marca/Laboratorio" />
+
+            <TableColumn fx:id="colPrecioCosto" prefWidth="150.0" text="Precio Costo" />
+            <TableColumn fx:id="colPrecioVenta" prefWidth="150.0" text="Precio Venta" />
+            <TableColumn fx:id="colStock" prefWidth="65.0" text="Stock" />
+
+
+            <TableColumn fx:id="colFechaVen" prefWidth="150.0" text="Fecha de Vencimiento" />
+            <TableColumn fx:id="colReceta" prefWidth="150.0" text="Requiere Receta" />
+
+        </columns>
+    </TableView>
+
+    <Separator />
+
+    <GridPane hgap="10.0" vgap="10.0">
+        <columnConstraints>
+            <ColumnConstraints minWidth="100.0" prefWidth="120.0" />
+            <ColumnConstraints hgrow="ALWAYS" />
+            <ColumnConstraints minWidth="100.0" prefWidth="120.0" />
+            <ColumnConstraints hgrow="ALWAYS" />
+        </columnConstraints>
+
+        <children>
+            <Label text="Nombre:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <TextField fx:id="txtNombre" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+            <Label text="P. Costo (S/):" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            <TextField fx:id="txtPrecioCosto" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+
+            <Label text="P. Venta (S/):" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <TextField fx:id="txtPrecioVenta" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+            <Label text="Stock Inicial:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField fx:id="txtStock" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+
+            <Label text="Marca/Lab:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <TextField fx:id="txtMarca" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+            <Label text="Vencimiento:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <DatePicker fx:id="dpVencimiento" maxWidth="Infinity" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+
+            <CheckBox fx:id="chkReceta" text="Requiere Receta" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        </children>
+    </GridPane>
+
+    <HBox spacing="15.0" alignment="CENTER_RIGHT">
+        <Button onAction="#Crear" prefWidth="120.0" style="-fx-background-color: #28a745; -fx-text-fill: white;" text="Agregar Producto" />
+        <Button onAction="#Editar" style="-fx-background-color: #0000FF; -fx-text-fill: white;" text="Editar producto" />
+        <Button onAction="#Eliminar" style="-fx-background-color: #dc3545; -fx-text-fill: white;" text="Eliminar Seleccionado" />
+
+    </HBox>
+</VBox>
